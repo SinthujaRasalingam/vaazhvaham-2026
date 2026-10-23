@@ -64,7 +64,7 @@ export default function HomePage() {
           console.error('Error fetching events:', error)
           return
         }
-        
+
         if (data) {
           console.log('Fetched events:', data)
           setEvents(data)
@@ -91,7 +91,7 @@ export default function HomePage() {
           console.error('Error fetching news:', error)
           return
         }
-        
+
         if (data) {
           console.log('Fetched news:', data)
           setNews(data)
@@ -107,11 +107,11 @@ export default function HomePage() {
   // Format date for display
   const formatDate = (dateString: string) => {
     const date = new Date(dateString)
-    return date.toLocaleDateString('en-US', { 
-      weekday: 'short', 
-      year: 'numeric', 
-      month: 'short', 
-      day: 'numeric' 
+    return date.toLocaleDateString('en-US', {
+      weekday: 'short',
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
     })
   }
 
@@ -129,10 +129,10 @@ export default function HomePage() {
         >
           <source src="/HomeV.mp4" type="video/mp4" />
         </video>
-        
+
         {/* Dark Overlay for better text visibility */}
-        <div className="absolute inset-0 bg-black/50"></div>
-        
+        <div className="absolute inset-0 bg-black/30"></div>
+
         {/* Content */}
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <div className="mx-auto max-w-4xl text-center">
@@ -164,7 +164,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 max-w-7xl mx-auto">
             {/* Our Mission */}
-            <div className="rounded-lg shadow-md p-6 sm:p-8 md:p-10">
+            <div className="rounded-lg shadow-md p-6 sm:p-8 md:p-10" style={{ backgroundColor: '#edf0fb' }}>
               <h2 className="mb-4 sm:mb-5 text-xl sm:text-2xl md:text-3xl font-bold text-[#1e3a8a] text-center">
                 {language === "en" ? "OUR MISSION" : "பணிக்கூற்று"}
               </h2>
@@ -176,7 +176,7 @@ export default function HomePage() {
             </div>
 
             {/* Motto with Image */}
-            <div 
+            <div
               className="relative bg-cover bg-center rounded-lg shadow-md p-6 sm:p-8 md:p-10 flex items-center justify-center min-h-[200px] sm:min-h-[250px]"
               style={{
                 backgroundImage: "url('/vallvaham.jpeg')",
@@ -189,7 +189,7 @@ export default function HomePage() {
                   {language === "en" ? "Motto" : "மகுட வாசகம்"}
                 </h2>
                 <p className="text-base sm:text-lg md:text-xl font-medium drop-shadow-lg">
-                  {language === "en" 
+                  {language === "en"
                     ? "Education is light. Education is path."
                     : "கல்வியே ஒளி கல்வியே வழி"}
                 </p>
@@ -209,7 +209,7 @@ export default function HomePage() {
             </div>
 
             {/* Contacts */}
-            <div className="rounded-lg shadow-md p-6 sm:p-8 md:p-10 flex flex-col items-center justify-center">
+            <div className="rounded-lg shadow-md p-6 sm:p-8 md:p-10 flex flex-col items-center justify-center" style={{ backgroundColor: '#edf0fb' }}>
               <h2 className="mb-4 sm:mb-5 text-xl sm:text-2xl md:text-3xl font-bold text-[#1e3a8a] text-center">
                 {language === "en" ? "Contacts" : "தொடர்பு கொள்ள"}
               </h2>
@@ -263,20 +263,20 @@ export default function HomePage() {
                 animation-play-state: paused;
               }
             `}</style>
-            
+
             <div className="flex animate-scroll-horizontal" style={{ width: 'fit-content' }}>
               {/* Duplicate events for seamless loop */}
               {events.length > 0 ? (
                 [...events, ...events].map((event, index) => (
-                  <Card 
-                    key={`event-${event.id}-${index}`} 
+                  <Card
+                    key={`event-${event.id}-${index}`}
                     className="flex-shrink-0 w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] mx-2 sm:mx-3 transition-all hover:shadow-xl overflow-hidden flex flex-col"
                     style={{ minHeight: '380px', backgroundColor: '#edf0fb' }}
                   >
                     {/* Event Image */}
                     <div className="relative h-36 sm:h-40 md:h-44 lg:h-48 w-full overflow-hidden">
                       {event.event_gallery_code && event.event_gallery_code.length > 0 ? (
-                        <img 
+                        <img
                           src={`/api/images-to-show/${event.event_gallery_code[0]}`}
                           alt={language === "en" ? event.event_heading_english : event.event_heading_tamil}
                           className="h-full w-full object-cover"
@@ -291,7 +291,7 @@ export default function HomePage() {
                         </div>
                       )}
                     </div>
-                    
+
                     <CardHeader className="p-4 sm:p-6">
                       <CardTitle className="text-base sm:text-lg text-center leading-snug mb-2 sm:mb-3">
                         {language === "en" ? event.event_heading_english : event.event_heading_tamil}
@@ -302,7 +302,7 @@ export default function HomePage() {
                           <span>{formatDate(event.date)}</span>
                         </div>
                         <div className="text-xs sm:text-sm text-center line-clamp-3 px-1 sm:px-2">
-                          {language === "en" 
+                          {language === "en"
                             ? (event.event_english_paragraph.substring(0, 120) + (event.event_english_paragraph.length > 120 ? '...' : ''))
                             : (event.event_tamil_paragraph.substring(0, 120) + (event.event_tamil_paragraph.length > 120 ? '...': ''))}
                         </div>
@@ -364,13 +364,13 @@ export default function HomePage() {
                 animation-play-state: paused;
               }
             `}</style>
-            
+
             <div className="flex animate-scroll-news" style={{ width: 'fit-content' }}>
               {/* Duplicate news for seamless loop */}
               {news.length > 0 ? (
                 [...news, ...news].map((newsItem, index) => (
-                  <Card 
-                    key={`news-${newsItem.id}-${index}`} 
+                  <Card
+                    key={`news-${newsItem.id}-${index}`}
                     className="flex-shrink-0 w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] mx-2 sm:mx-3 transition-all hover:shadow-md overflow-hidden flex flex-col"
                     style={{ minHeight: '260px', backgroundColor: '#edf0fb' }}
                   >
@@ -385,7 +385,7 @@ export default function HomePage() {
                     </CardHeader>
                     <CardContent className="flex-1 flex flex-col p-4 sm:p-6">
                       <p className="mb-3 sm:mb-4 text-xs sm:text-sm text-muted-foreground leading-relaxed flex-1">
-                        {language === "en" 
+                        {language === "en"
                           ? (newsItem.news_english_paragraph.substring(0, 150) + (newsItem.news_english_paragraph.length > 150 ? '...' : ''))
                           : (newsItem.news_tamil_paragraph.substring(0, 150) + (newsItem.news_tamil_paragraph.length > 150 ? '...' : ''))}
                       </p>

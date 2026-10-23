@@ -6,35 +6,36 @@ import { Footer } from "@/components/footer"
 
 export function ConditionalLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
-  const hideHeaderFooter = 
-    pathname === "/selectrole" || 
-    pathname === "/admindashboard" || 
-    pathname === "/staffdashboard" || 
-    pathname === "/managementdashboard" ||
-    pathname === "/staffmanagement" ||
-    pathname === "/newsmanagement" ||
-    pathname === "/eventmanagement" ||
-    pathname === "/publicationmanagement" ||
-    pathname === "/adminnewsmanagement" ||
-    pathname === "/admineventmanagement" ||
-    pathname === "/adminpublicationmanagement" ||
-    pathname === "/staffnewsmanagement" ||
-    pathname === "/staffeventmanagement" ||
-    pathname === "/staffpublicationmanagement" ||
-    pathname === "/managementnewsmanagement" ||
-    pathname === "/managementeventmanagement" ||
-    pathname === "/managementpublicationmanagement" ||
-    pathname === "/addstaff" ||
-    pathname === "/editstaff" ||
-    pathname === "/addnews" ||
-    pathname === "/editnews" ||
-    pathname === "/deletenews" ||
-    pathname === "/addpublication" ||
-    pathname === "/editpublication" ||
-    pathname === "/deletepublication" ||
-    pathname === "/addevent" ||
-    pathname === "/editevent" ||
-    pathname === "/deleteevent"
+  const hideHeaderFooter =
+    pathname === "/admin" ||
+    pathname === "/admin/register" ||
+    pathname === "/admin/dashboard" ||
+    pathname === "/staff/dashboard" ||
+    pathname === "/manager/dashboard" ||
+    pathname === "/admin/staff" ||
+    pathname === "/admin/news" ||
+    pathname === "/admin/event" ||
+    pathname === "/admin/publication" ||
+    pathname === "/admin/adminnewsmanagement" ||
+    pathname === "/admin/admineventmanagement" ||
+    pathname === "/admin/adminpublicationmanagement" ||
+    pathname === "/staff/news" ||
+    pathname === "/staff/event" ||
+    pathname === "/staff/publication" ||
+    pathname === "/manager/news" ||
+    pathname === "/manager/event" ||
+    pathname === "/manager/publication" ||
+    pathname === "/admin/staff/add" ||
+    pathname === "/admin/staff/edit" ||
+    pathname === "/admin/news/add" ||
+    pathname === "/admin/news/edit" ||
+    pathname === "/admin/news/delete" ||
+    pathname === "/admin/publication/add" ||
+    pathname === "/admin/publication/edit" ||
+    pathname === "/admin/publication/delete" ||
+    pathname === "/admin/event/add" ||
+    pathname === "/admin/event/edit" ||
+    pathname === "/admin/event/delete"
 
   if (hideHeaderFooter) {
     return <>{children}</>

@@ -28,6 +28,46 @@ const nextConfig = {
       },
     ]
   },
+  async rewrites() {
+    return [
+      {
+        source: '/about',
+        destination: '/client/about',
+      },
+      {
+        source: '/history',
+        destination: '/client/history',
+      },
+      {
+        source: '/founder',
+        destination: '/client/founder',
+      },
+      {
+        source: '/events',
+        destination: '/client/events',
+      },
+      {
+        source: '/news',
+        destination: '/client/news',
+      },
+      {
+        source: '/publication',
+        destination: '/client/publication',
+      },
+      {
+        source: '/gallery',
+        destination: '/client/gallery',
+      },
+      {
+        source: '/contact',
+        destination: '/client/contact',
+      },
+      {
+        source: '/support',
+        destination: '/client/support',
+      },
+    ];
+  },
 }
 
 export default nextConfig
